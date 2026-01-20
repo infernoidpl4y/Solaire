@@ -33,7 +33,6 @@ my $file=$ARGV[0];
 my $input=path($file)->slurp_utf8;
 
 eval parser($input);
-say parser($input);
 if($@){
 	say "$@";
 }
