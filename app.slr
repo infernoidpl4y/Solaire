@@ -1,0 +1,16 @@
+IMPORT logln;
+
+FUNC hello(@valor)$>
+    logln(@valor);
+<$
+hello("hola");
+VAR @X=10;
+VAR @Y=20;
+SI(@X>=@Y)$>
+	@X+=@X-2*2;
+<$
+SINO$>
+	@Y-=1*3;
+<$
+
+logln("X: @X Y: @Y");
