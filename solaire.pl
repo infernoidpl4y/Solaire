@@ -8,24 +8,23 @@ use lib "modules";
 
 sub parser{
 	my ($code)=@_;
-	#Import
 	if($code=~/IMPORT IN (\w+)/){
 		$code=~s/IMPORT IN (\w+)/use feature \"$1\"/g;
 	}else{
 		$code=~s/IMPORT (\w+)/use $1/g;
 	}
-	#Variables
 	$code=~s/\@(\w+)/\$$1/g;
+	$code=~s/\&(\w+)/\@$1/g;
 	$code=~s/VAR/my/g;
-	#funciones FUNC ^
 	$code=~s/FUNC\s+(\w+)\s*\(([^)]+)\)\s*\$\>/sub $1\{\n   my \($2\)=\@_;/g;
+	$code=~s/RET\s+([^)]+)/return $1/g;
 	$code=~s/\<\$/\}/g;
-	#Input Y Output
 	$code=~s/log\(([^)]+)\)/f_log\($1\)/g;
-	#Condiciones
 	$code=~s/SI\s*\(([^)]+)\)\s*\$\>/if\($1\)\{/g;
 	$code=~s/SINO\s*\$\>/else\{/g;
-	
+	$code=~s/PORCADA\s*\(([^)]+)\s+EN\s+([^)]+)\)\s*\$\>/foreach $1 \($2\)\{/g;
+	$code=~s/POR\s*\(([^)]+);([^)]+);([^)]+)\)\s*\$\>/for\($1;$2;$3\)\{/g;
+	$code=~s/ABRIR\s*\(([^)]+)\)/path\($1\)\-\>slurp_utf8/g;
 	return $code;
 }
 
