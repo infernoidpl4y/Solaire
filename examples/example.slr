@@ -1,9 +1,10 @@
 #Modulos
-IMPORT logln;
+IMPORTAR logln;
 
-FUNC hello(@valor)$>
+FUNCION hello(@valor)$>
     logln(@valor);
 <$
+
 hello("hola");
 
 #Variables
@@ -32,3 +33,8 @@ PORCADA(@b EN &A)$>
 #Archivos INPUT/OUTPUT
 VAR @file=ABRIR("test.pl");
 logln(@file);
+
+FUNCION saludo(){
+	RETORNAR "hola";
+}
+logln(saludo);

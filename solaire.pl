@@ -8,16 +8,16 @@ use lib "modules";
 
 sub parser{
 	my ($code)=@_;
-	if($code=~/IMPORT IN (\w+)/){
-		$code=~s/IMPORT IN (\w+)/use feature \"$1\"/g;
+	if($code=~/IMPORTAR FE (\w+)/){
+		$code=~s/IMPORTAR FE (\w+)/use feature \"$1\"/g;
 	}else{
-		$code=~s/IMPORT (\w+)/use $1/g;
+		$code=~s/IMPORTAR (\w+)/use $1/g;
 	}
 	$code=~s/\@(\w+)/\$$1/g;
 	$code=~s/\&(\w+)/\@$1/g;
 	$code=~s/VAR/my/g;
-	$code=~s/FUNC\s+(\w+)\s*\(([^)]+)\)\s*\$\>/sub $1\{\n   my \($2\)=\@_;/g;
-	$code=~s/RET\s+([^)]+)/return $1/g;
+	$code=~s/FUNCION\s+(\w+)\s*\(([^)]*)\)\s*\$\>/sub $1\{\n   my \($2\)=\@_;/g;
+	$code=~s/RETORNAR\s+([^)]+)/return $1/g;
 	$code=~s/\<\$/\}/g;
 	$code=~s/log\(([^)]+)\)/f_log\($1\)/g;
 	$code=~s/SI\s*\(([^)]+)\)\s*\$\>/if\($1\)\{/g;
