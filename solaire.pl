@@ -8,6 +8,7 @@ use lib "modules";
 
 sub parser{
 	my ($code)=@_;
+	#Import
 	if($code=~/IMPORT IN (\w+)/){
 		$code=~s/IMPORT IN (\w+)/use feature \"$1\"/g;
 	}else{
@@ -29,6 +30,10 @@ sub parser{
 }
 
 my $file=$ARGV[0];
+if($file eq "-v"){
+	say "Solaire v1.0";
+	exit;
+}
 my $input=path($file)->slurp_utf8;
 
 eval parser($input);
