@@ -1,15 +1,16 @@
 # Solaire
-Language of programing 
+Lenguaje de programación
+> Objetivo: automatización y desarrollo de herramientas.
 
 file extensions: .slr, .pslr
 
-## How to install?
+## ¿Cómo instalar?
 ```bash
 chmod +x setup.sh
 ./setup.sh
 ```
 
-## How use?
+# ¿Cómo usar?
 ```bash
 solaire archivo.slr
 ```
