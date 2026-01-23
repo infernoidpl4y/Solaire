@@ -8,7 +8,6 @@ use lib "modules";
 
 sub parser{
 	my ($code)=@_;
-	#Import
 	if($code=~/IMPORT IN (\w+)/){
 		$code=~s/IMPORT IN (\w+)/use feature \"$1\"/g;
 	}else{
