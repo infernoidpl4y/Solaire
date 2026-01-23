@@ -1,0 +1,40 @@
+#Modulos
+IMPORTAR logln;
+
+FUNCION hello(@valor)$>
+    logln(@valor);
+<$
+
+hello("hola");
+
+#Variables
+VAR @X=10;
+VAR @Y=20;
+VAR &A=(1,2,3);
+
+#Condicionales
+SI(@X>=@Y)$>
+	@X+=@X-2*2;
+<$
+SINO$>
+	@Y*=1-3;
+<$
+
+logln("X: @X Y: @Y");
+
+#Bucles
+POR(@a=1;@a<10;@a++)$>
+	logln(@a);
+<$
+PORCADA(@b EN &A)$>
+	logln(@b);
+<$
+
+#Archivos INPUT/OUTPUT
+VAR @file=a_ABRIR("test.pl",UTF8);
+logln(@file);
+
+FUNCION saludo()$>
+	RETORNAR "hola";
+<$
+logln(saludo);

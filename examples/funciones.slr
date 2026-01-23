@@ -1,0 +1,7 @@
+IMPORTAR logln;
+
+FUNCION saludo(@valor)$>
+    RETORNAR "Hola @valor";
+<$
+
+logln(saludo("Manolo"));

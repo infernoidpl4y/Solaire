@@ -1,0 +1,8 @@
+VAR &A=(1,2,3);
+
+POR(@a=1;@a<10;@a++)$>
+	ESCRIBIR(@a);
+<$
+PORCADA(@b EN &A)$>
+	ESCRIBIR(@b);
+<$

@@ -1,0 +1,22 @@
+IMPORTAR logln;
+
+logln("\[+\]Creando archivo.");
+a_ESCRIBIR("ejemplo.txt","Contenido de ejemplo");
+
+logln("\[*\]Contenido del archivo:");
+VAR @file=a_ABRIR("ejemplo.txt",UTF8);
+logln(@file);
+
+logln("\[+\]Agregando contenido.");
+a_AGREGAR("ejemplo.txt","Hola Mundo, en Solaire");
+
+VAR &lista=a_ABRIR("ejemplo.txt",LISTA);
+
+VAR @contador;
+VAR @elemento;
+PORCADA(@elemento EN &lista)$>
+	@contador+=1;
+	ESCRIBIR("Linea @contador: @elemento");
+<$
+
+a_ELIMINAR("ejemplo.txt");
