@@ -6,6 +6,8 @@ file extensions: .slr, .pslr
 
 ## ¿Cómo instalar?
 ```bash
+git clone https://github.com/infernoidpl4y/Solaire
+cd Solaire
 chmod +x setup.sh
 ./setup.sh
 ```
